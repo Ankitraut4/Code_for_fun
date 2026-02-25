@@ -9,6 +9,10 @@ class Solution {
         return result;
     }
     private int greNum(int[] candies){
-        return Arrays.stream(candies).max().orElse(0);
+        int max_Num = Integer.MIN_VALUE;
+        for(int can : candies){
+            max_Num = Math.max(can, max_Num);
+        }
+        return max_Num;
     }
 }
