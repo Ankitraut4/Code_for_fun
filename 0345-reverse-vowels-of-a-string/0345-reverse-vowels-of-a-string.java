@@ -3,31 +3,28 @@ class Solution {
         char[] arr = s.toCharArray();
         int i=0, j = arr.length-1;
         while(j>i){
-            if(!isVowel(arr[i])){
+            while(j>i && !isVowel(arr[i])){
                 i++;
             }
-            if(!isVowel(arr[j])){
+            while(j>i && !isVowel(arr[j])){
                 j--;
-            }else if(isVowel(arr[i]) && isVowel(arr[j])){
+            }
+            if(j>i){
                 char temp = arr[i];
-                arr[i]=arr[j];
+                arr[i] = arr[j];
                 arr[j] = temp;
                 i++;
                 j--;
             }
-
-            }
-            return new String(arr);
         }
-    
-    private Boolean isVowel(char v){
-        String vowel = "AEIOUaeiou";
-        for(int i=0; i <vowel.length(); i++){
-            if(vowel.charAt(i)==v){
+        return new String(arr);
+    }
+    private boolean isVowel(char v){
+        switch(Character.toLowerCase(v)){
+            case 'a' : case 'i' : case 'e' : case 'o' : case 'u':
                 return true;
-            }
-            
-        }
-        return false;
+            default : 
+                return false;
+}
 }
 }
