@@ -9,13 +9,22 @@ class Solution {
         for(int n : nums2){
             set2.add(n);
         }
+        List<Integer> list1=new ArrayList<Integer>();
+        List<Integer> list2=new ArrayList<Integer>();
 
-        Set<Integer> s1= new HashSet<Integer>(set1);
-        Set<Integer> s2=new HashSet<Integer>(set2);
-        
-        s1.removeAll(set2);
-        s2.removeAll(set1);
-
-        return Arrays.asList(new ArrayList(s1), new ArrayList(s2));
+        for(int s : set1){
+            if(!set2.contains(s)){
+                list1.add(s);
+            }
+        }
+        for(int s : set2){
+            if(!set1.contains(s)){
+                list2.add(s);
+            }
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(list1);
+        result.add(list2);
+        return result;
     }
 }
