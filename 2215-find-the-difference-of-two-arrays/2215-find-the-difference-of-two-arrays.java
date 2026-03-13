@@ -9,8 +9,8 @@ class Solution {
         for(int n : nums2){
             set2.add(n);
         }
-        List<Integer> list1=new ArrayList<Integer>();
-        List<Integer> list2=new ArrayList<Integer>();
+        List<Integer> list1=new ArrayList<Integer>(nums1.length);
+        List<Integer> list2=new ArrayList<Integer>(nums2.length);
 
         for(int s : set1){
             if(!set2.contains(s)){
