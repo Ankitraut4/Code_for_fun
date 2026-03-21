@@ -26,7 +26,7 @@ class Solution {
         
     }
     
-    return Arrays.copyOfRange(arr, 0, top + 1);
+    return Arrays.copyOf(arr, top + 1);
     
     
     
