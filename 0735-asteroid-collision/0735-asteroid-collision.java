@@ -1,30 +1,63 @@
 class Solution {
     public int[] asteroidCollision(int[] asteroids) {
-       Stack<Integer> stack=new Stack<>();
+    int[] arr =new int[asteroids.length];
 
-       for(int n : asteroids){
-        boolean remove= false;
+    int top=-1;
+    for(int n : asteroids){
+        boolean remove =false;
 
-        while(!stack.isEmpty() && stack.peek()>0 && n < 0){
-            if(stack.peek() < -n){
-                stack.pop();
-            }else if(stack.peek()== -n){
-                stack.pop();
+        while(top>=0 && arr[top]>0 && n<0){
+            if(arr[top]<-n){
+                top--;
+            }else if(arr[top]== -n){
+                top--;
                 remove=true;
                 break;
             }else{
                 remove=true;
                 break;
             }
+
         }
         if(!remove){
-            stack.push(n);
+            arr[++top]=n;
         }
-       }
-       int[] arr=new int[stack.size()];
-       for(int i=stack.size()-1;i>=0;i--){
-            arr[i]=stack.pop();
-       }
-       return arr;
+
+        
+    }
+    
+    return Arrays.copyOfRange(arr, 0, top + 1);
+    
+    
+    
+    
+    
+    
+    //    Stack<Integer> stack=new Stack<>();
+
+    //    for(int n : asteroids){
+    //     boolean remove= false;
+
+    //     while(!stack.isEmpty() && stack.peek()>0 && n < 0){
+    //         if(stack.peek() < -n){
+    //             stack.pop();
+    //         }else if(stack.peek()== -n){
+    //             stack.pop();
+    //             remove=true;
+    //             break;
+    //         }else{
+    //             remove=true;
+    //             break;
+    //         }
+    //     }
+    //     if(!remove){
+    //         stack.push(n);
+    //     }
+    //    }
+    //    int[] arr=new int[stack.size()];
+    //    for(int i=stack.size()-1;i>=0;i--){
+    //         arr[i]=stack.pop();
+    //    }
+    //    return arr;
     }
 }
