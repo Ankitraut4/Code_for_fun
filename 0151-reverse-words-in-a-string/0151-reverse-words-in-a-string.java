@@ -1,53 +1,51 @@
 class Solution {
     public String reverseWords(String s) {
-        char[] arr=s.toCharArray();
+        char[] arr= s.toCharArray();
         reverse(arr, 0, arr.length-1);
         int i=0;
-        while(i<arr.length){
-            while(i<arr.length && arr[i]==' '){
+        int n= arr.length;
+        while(i<n){
+            while(i<n && arr[i]==' '){
                 i++;
             }
             int j=i;
-            while(j<arr.length && arr[j]!=' '){
-                j++;
+            while(i<n && arr[i]!=' '){
+                i++;
             }
-            reverse(arr, i, j-1);
-            i=j;
-            
-        }
+            reverse(arr, j, i-1);
 
+        }
+        return removeSpace(arr);
         
-    return spaceRemove(arr);
     }
-    private void reverse(char[] arr, int start, int end){
-        while(start<end){
+
+    public String removeSpace(char[] arr){
+        int i=0;
+        int j=0;
+        int n=arr.length;
+        while(i<n){
+            while(i<n && arr[i]==' '){
+                i++;
+            }
+            while(i<n && arr[i]!=' '){
+                arr[j++]=arr[i++];
+            }
+            while(i<n && arr[i]==' '){
+                i++;
+            }
+            if(i<n){
+                arr[j++]=' ';
+            }
+        }
+        return new String(arr,0, j);
+    }
+    public void reverse(char[] arr, int start, int end){
+        while(end>start){
             char temp = arr[start];
-            arr[start]=arr[end];
-            arr[end]=temp;
+            arr[start] = arr[end];
+            arr[end] = temp;
             start++;
             end--;
         }
     }
-    private String spaceRemove(char[] arr){
-        int i =0; 
-        int j=0;
-        int n=arr.length;
-        while(j<n){
-            while(j< n && arr[j]==' '){
-                j++;
-            }
-            while(j<n && arr[j]!=' '){
-                arr[i++]=arr[j++];
-            }
-            while(j<n && arr[j]==' '){
-                j++;
-            }
-            if(j<n){
-                arr[i++]=' ';
-            }
-            
-        }
-        return new String(arr,0,i);
-    }
-   
 }
