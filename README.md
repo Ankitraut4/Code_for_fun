@@ -101,4 +101,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0735-asteroid-collision](https://github.com/Ankitraut4/Code_for_fun/tree/master/0735-asteroid-collision) |
 | [2390-removing-stars-from-a-string](https://github.com/Ankitraut4/Code_for_fun/tree/master/2390-removing-stars-from-a-string) |
+## Longest Increasing Subsequence
+|  |
+| ------- |
+| [0334-increasing-triplet-subsequence](https://github.com/Ankitraut4/Code_for_fun/tree/master/0334-increasing-triplet-subsequence) |
 <!---LeetCode Topics End-->
