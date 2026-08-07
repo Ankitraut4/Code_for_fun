@@ -1,26 +1,26 @@
 class Solution {
     public int longestOnes(int[] nums, int k) {
-        int left =0;
-        int right =0;
-        int max_word=0;
-        int numZero=0;
+        int zeroFinder = 0;
+        int zeroDelete = 0;
+        int numZero = 0;
+        int maxLength = 0;
 
-        while(right<nums.length){
-            if(nums[right]==0){
-                numZero++;
+        while(zeroFinder < nums.length){
+            if(nums[zeroFinder] == 0){
+                numZero ++;
             }
-            right++;
-
+            zeroFinder ++;
             while(numZero>k){
-                if(nums[left]==0){
-                    numZero--;
+                if(nums[zeroDelete]==0){
+                    numZero --;
                 }
-                left++;
-
+                zeroDelete ++;
             }
 
-            max_word=Math.max(max_word, right-left);
+
+
+            maxLength = Math.max(maxLength, zeroFinder - zeroDelete);
         }
-        return max_word;
+        return maxLength;
     }
 }
