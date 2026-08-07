@@ -20,7 +20,12 @@ class Solution {
         return maxCount;
         
     }
-    private boolean isVowel(char ch){
-        return ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' ; 
+    public boolean isVowel(char c){
+        switch(c){
+            case 'a' : case 'e' : case 'i' : case 'o' : case 'u':
+            return true;
+            default:
+            return false;
+        }
     }
-    }
+}
