@@ -1,19 +1,18 @@
 class Solution {
     public int pivotIndex(int[] nums) {
-      int prefix = 0;
-      int postfix =0;
-      for(int i=0; i<nums.length; i++){
-            postfix+=nums[i];
-      }
-      int i=0;
-      while(i<nums.length){
-        if(prefix==postfix-nums[i]){
-            return i;
+        int pre = 0;
+        int post =0;
+        for(int i=0; i<nums.length; i++){
+            post+=nums[i];
         }
-        prefix+=nums[i];
-        postfix-=nums[i];
-        i++;
-      }  
-      return -1;
+        
+        for(int i=0; i<nums.length; i++){
+            if(pre==post-nums[i]){
+                return i;
+            }
+            pre+=nums[i];
+            post-=nums[i];    
+        }
+        return -1;
     }
 }
