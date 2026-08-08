@@ -3,11 +3,7 @@ class Solution {
         Map<Integer, Integer> val=new HashMap<Integer, Integer>();
 
         for(int a: arr){
-            if(val.containsKey(a)){
-                val.put(a, val.get(a)+1);
-            }else{
-                val.put(a, 1);
-            }
+            val.put(a, val.getOrDefault(a,0)+1);
         }
         Set<Integer> set1=new HashSet<Integer>(val.values());
 
